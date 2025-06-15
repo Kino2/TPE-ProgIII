@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Backtracking {
 
-    private int objetivo;
-    private List<Maquina> maquinas;
+    private final int objetivo;
+    private final List<Maquina> maquinas;
     private int estados;
     private List<Maquina> mejorSolucion;
 

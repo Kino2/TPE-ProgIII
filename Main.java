@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            List<String> lineas = Files.readAllLines(Paths.get("E:\\Facultad\\Programacion III\\2025\\TPE\\datos.txt"));
+            List<String> lineas = Files.readAllLines(Paths.get("datos.txt"));
 
             int objetivo = Integer.parseInt(lineas.get(0).trim());
             List<Maquina> maquinas = new ArrayList<>();
@@ -21,8 +21,12 @@ public class Main {
                 maquinas.add(new Maquina(nombre, piezas));
             }
 
-            Backtracking app = new Backtracking(objetivo, maquinas);
-            app.backtrack();
+            Backtracking backtrack = new Backtracking(objetivo, maquinas);
+            backtrack.backtrack();
+            System.out.println("------------------------------------------------");
+
+            Greedy greedy = new Greedy(objetivo, maquinas);
+            greedy.resolver();
 
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
