@@ -1,7 +1,8 @@
 
 public class Maquina {
-    private String nombre;
-    private int piezas;
+
+    private final String nombre;
+    private final int piezas;
 
     public Maquina(String nombre, int piezas) {
         this.nombre = nombre;
