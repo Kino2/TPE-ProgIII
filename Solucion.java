@@ -32,7 +32,6 @@ public class Solucion {
             System.out.println("Puestas en funcionamiento: " + resultado.size());
         }
         System.out.println("Estados generados: " + estados);
-
     }
 
     /*
@@ -40,7 +39,7 @@ public class Solucion {
  * - Árbol de exploración:
  *   Se genera considerando, en cada nivel, todas las máquinas posibles desde la posición actual.
  *   Como en la llamada recursiva se vuelve a pasar el mismo índice (i), se permite repetir máquinas.
- *   Ejemplo con máquinas que producen [7, 3, 4, 1] y objetivo 12:
+ *   Ejemplo con máquinas que producen [7, 3, 4, 1] y el objetivo es 12:
  *   []
  *   ├── [7]
  *   │   ├── [7, 3]
@@ -81,11 +80,9 @@ public class Solucion {
             }
             return;
         }
-
         if (!resultado.isEmpty() && usadas.size() + 1 >= resultado.size()) { // Poda 1: Si la solución actual ya es igual o peor que la mejor encontrada, no sigue
             return;
         }
-
         for (int i = start; i < maquinas.size(); i++) {
             Maquina m = maquinas.get(i);
             if (sumaActual + m.getPiezas() <= objetivo) { // Poda 2: Solo agrega máquina si no se pasa del objetivo
@@ -152,6 +149,7 @@ public class Solucion {
         maquinas.sort((a, b) -> b.getPiezas() - a.getPiezas());
     }
 
+    // Calcula la suma total de piezas producidas por una lista de máquinas
     private int calcularSuma(List<Maquina> lista) {
         int suma = 0;
         for (Maquina m : lista) {
